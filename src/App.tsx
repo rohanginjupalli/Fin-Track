@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import RootLayout from './components/RootLayout'
-import Home from "./components/Dashboard/Home"
-import AddTransaction from "./components/Transactions/addTransaction"
+import Home from "./Dashboard/Home"
+import AddTransaction from "./Transactions/addTransaction"
 
 
 import './App.css'

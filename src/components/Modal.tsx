@@ -1,4 +1,5 @@
 import React from "react";
+import { useAddTransactionMutation } from "../store/apis/transactionsApi";
 import { useForm } from "react-hook-form";
 
 type Inputs = {
@@ -14,10 +15,17 @@ interface ModalProps {
 }
 
 function Modal({ setShowForm }: ModalProps) {
-  const { register, handleSubmit } = useForm<Inputs>();
 
-  const onSubmit = (data: Inputs) => {
-    console.log(data);
+  const [addTransaction, { isLoading }] = useAddTransactionMutation();
+
+  const { register, handleSubmit } = useForm<Inputs>({
+    defaultValues: {
+    date: new Date().toISOString().split("T")[0], 
+  },
+  });
+
+  const onSubmit = async (data: Inputs) => {
+    await addTransaction(data)
     setShowForm(false);
   };
 
@@ -54,7 +62,7 @@ function Modal({ setShowForm }: ModalProps) {
             <option value="income">Income</option>
             <option value="expense">Expense</option>
           </select>
-          <input type="date" {...register("date")} className="w-full border rounded-lg p-2" required />
+          <input type="date" {...register("date")} max={new Date().toISOString().split("T")[0]} className="w-full border rounded-lg p-2" required />
 
           <div className="flex justify-end gap-3 pt-4">
             <button type="button" onClick={() => setShowForm(false)} className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">

@@ -1,18 +1,14 @@
-
+import { useGetTransactionsQuery, type Transaction } from "../store/apis/transactionsApi";
 import { useState } from "react"
 import Button from "../components/Button"
 import Modal from "../components/Modal"
 
-interface TransactionDetails {
-  id:number,
-  title:string,
-  category:string,
-  type:string,
-  amount:number,
-  date:string
-}
+// Using Transaction type from the API slice; remove unused local interface.
 
 function AddTransaction() {
+  const { data, error, isFetching } = useGetTransactionsQuery();
+  const transactions: Transaction[] = data ?? [];
+
 
   const [showForm,setShowForm] = useState(false);
   
@@ -20,14 +16,8 @@ function AddTransaction() {
     setShowForm(true)
   }
 
-  const transactions:TransactionDetails[] = 
-  [
-    { id: 1, title: "Biryani", category: "Food", type: "Expense", amount: 200, date: "2024-11-01" },
-    { id: 2, title: "Salary", category: "Job", type: "Income", amount: 50000, date: "2024-09-22" },
-    { id: 3, title: "Metro Ticket", category: "Travel", type: "Expense", amount: 50, date: "2024-10-12" },
-  ];
-
-  const renderedTnx = transactions.map((txn) => (
+  
+  const renderedTnx = transactions.map((txn: Transaction) => (
             <tr key={txn.id} className="border-t">
               <td className="p-2">{txn.title}</td>
               <td>{txn.category}</td>
@@ -54,20 +44,28 @@ function AddTransaction() {
         </div>
     </div>
     <div className="ml-10 w-4xl" >
-      <table className="w-full border border-gray-300 text-left">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="p-2">Title</th>
-            <th>Category</th>
-            <th>Amount</th>
-            <th>Type</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {renderedTnx}
-        </tbody>
-      </table>
+      {isFetching && <p className="p-4 text-gray-500">Loading transactions...</p>}
+      {error && !isFetching && <p className="p-4 text-red-600">Failed to load transactions.</p>}
+      {!isFetching && !error && (
+        transactions.length === 0 ? (
+          <p className="p-4 text-gray-500">No transactions found.</p>
+        ) : (
+          <table className="w-full border border-gray-300 text-left">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="p-2">Title</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Type</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {renderedTnx}
+            </tbody>
+          </table>
+        )
+      )}
     </div>
   </div>
   )

@@ -1,19 +1,28 @@
 {
   "transactions": [
     {
-      "id": "1",
-      "title": "Biryani",
+      "id": "76be",
+      "title": "Ramesh Paid",
       "category": "Food",
-      "amount": 200,
+      "amount": "3000",
       "type": "expense",
-      "date": "2024-11-01"
+      "date": "2025-11-11"
     },
     {
-      "id": "5b76",
-      "name": "Rohan Example",
-      "dob": "1995-01-15",
-      "gender": "male",
-      "contact": "alice@example.com"
+      "id": "9a72",
+      "date": "2025-11-09",
+      "title": "Mehfil",
+      "category": "Debt",
+      "amount": "2025",
+      "type": "expense"
+    },
+    {
+      "id": "2ed0",
+      "date": "2025-11-09",
+      "title": "Chaitanya Food COurt",
+      "category": "Food",
+      "amount": "6000",
+      "type": "income"
     }
   ]
 }

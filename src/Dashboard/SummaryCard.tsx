@@ -1,4 +1,6 @@
 import Panel from "../components/Panel"
+import { useGetTransactionsQuery } from "../store/apis/transactionsApi"
+
 interface SummaryCardDetails {
   title:string,
   amount:number,
@@ -6,6 +8,8 @@ interface SummaryCardDetails {
 
 
 function SummaryCard({title,amount}:SummaryCardDetails) {
+
+  
 
   return (
     <div>

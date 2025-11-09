@@ -106,3 +106,18 @@ npm run dev
 npm json-server --watch db.json --port 3000
 # or
 npm run start:server
+
+
+✅ Summary of Final Feature Goals
+Feature	Status
+Add transactions	✅ Done
+Get data from API	✅ Done
+Modal + React-hook-form	✅ Done
+Total income/expense calculation	✅ Done
+Edit transaction	🔄 Pending
+Delete transaction	🔄 Pending
+Graphs (Recharts)	🔄 Pending
+Filters & sorting	🔄 Pending
+Auth system	🔄 Optional
+Export PDF/Excel	🔄 Optional
+Deployment	🔄 Final step

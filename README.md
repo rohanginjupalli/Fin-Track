@@ -63,29 +63,31 @@ JSON Server → RTK Query API → Redux Store → React Components
 
 ## 📁 Folder Structure
 
+```
 /src
-├── assets/ # Images or icons (if any)
-├── components/
-│ ├── Button.tsx
-│ ├── Modal.tsx
-│ ├── SummaryCard.tsx
-│ ├── Footer.tsx
-│ └── RootLayout.tsx
-├── Dashboard/
-│ ├── Home.tsx
-│ ├── ExpenseIncomeGraph.tsx
-│ └── RecentTransactions.tsx
-├── Transactions/
-│ └── AddTransaction.tsx
-├── NavigationBar/
-│ └── NavBar.tsx
-├── store/
-│ ├── apis/
-│ │ └── transactionsApi.ts
-│ └── index.ts # Store configuration
-├── App.tsx # App routes setup
-├── main.tsx # App entry point
-└── db.json # JSON Server database
+├── assets/                       # Images or icons (if any)
+├── components/                  # Reusable UI components
+│   ├── Button.tsx
+│   ├── Modal.tsx
+│   ├── SummaryCard.tsx
+│   ├── Footer.tsx
+│   └── RootLayout.tsx
+├── Dashboard/                   # Dashboard related components
+│   ├── Home.tsx
+│   ├── ExpenseIncomeGraph.tsx
+│   └── RecentTransactions.tsx
+├── Transactions/                # Transactions page components
+│   └── AddTransaction.tsx
+├── NavigationBar/               # Navigation bar component
+│   └── NavBar.tsx
+├── store/                       # Redux Toolkit store setup
+│   ├── apis/
+│   │   └── transactionsApi.ts   # RTK Query API logic
+│   └── index.ts                 # Store configuration
+├── App.tsx                      # App routes setup
+├── main.tsx                     # Application entry point
+└── db.json                      # JSON Server mock backend
+```
 
 
 ## ⚡ How to Run Locally

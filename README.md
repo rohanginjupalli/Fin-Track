@@ -1,73 +1,85 @@
-# React + TypeScript + Vite
+🚀 FinTrack – Personal Finance Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and scalable personal finance management web app built with React, TypeScript, Redux Toolkit, and RTK Query.
+It allows users to track their income, expenses, and financial balance in real-time with clean UI, API-powered backend, and modular architecture.
 
-Currently, two official plugins are available:
+✨ Why This Project Stands Out
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✔ Built using Enterprise-grade architecture
+✔ Fully functional Redux global state + RTK Query API integration
+✔ Uses TypeScript for type safety and reliability
+✔ Implements a fake backend with JSON Server → mimics a real API
+✔ Modular, scalable folder structure for production-ready code
+✔ Features clean UI with Tailwind CSS + Reusable Components
+✔ Smart Data handling – CRUD operations, caching, auto-refetching
+✔ Dynamic Summary Cards → Total Income, Expense, Remaining Balance
+✔ Form submission using React Hook Form and RTK Query POST requests
 
-## React Compiler
+🛠️ Tech Stack
+Category	Technology
+Frontend	React + TypeScript + Vite
+State Management	Redux Toolkit (RTK)
+API Handling	RTK Query
+Styling	Tailwind CSS
+Form Validation	React Hook Form
+Mock Backend	JSON Server
+Routing	React Router DOM v6
+🧠 Core Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+✅ Dashboard Overview – Displays summary cards:
 
-## Expanding the ESLint configuration
+💰 Total Income
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+💸 Total Expense
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+💼 Remaining Balance
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+✅ Transaction Management
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+View all transactions dynamically from backend
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Add new income/expense through a modal form
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Data automatically stored in db.json using POST API
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Auto UI refresh with RTK Query caching & invalidation
+
+✅ UI/UX & Component-Based Architecture
+
+Reusable components → Button, Modal, SummaryCard, Table
+
+Mobile-responsive design with Tailwind
+
+Clean and minimalistic finance dashboard layout
+
+✅ Real-Time Data Flow
+
+JSON Server → RTK Query → Redux Store → React UI (Dashboard & Tables)
+
+
+📂 Folder Structure Overview
+/src
+ ├── components/         # Reusable UI components (Modal, Buttons, SummaryCard)
+ ├── pages/              # Dashboard & Transaction Pages
+ ├── store/
+ │    ├── apis/          # RTK Query API services
+ │    └── store.ts       # Redux Store configuration
+ ├── assets/             # Images, Icons 
+ ├── App.tsx             # Routing setup
+ └── main.tsx            # App entry point
+
+ ⚡ How to Run Locally
+# 1. Clone Repo
+git clone https://github.com/yourusername/fintrack.git
+cd fintrack
+
+# 2. Install Dependencies
+npm install
+
+# 3. Start Frontend
+npm run dev
+
+# 4. Start Backend (JSON Server)
+npm run serve:db
+# OR
+json-server --watch db.json --port 3000

@@ -1,0 +1,19 @@
+{
+  "transactions": [
+    {
+      "id": "1",
+      "title": "Biryani",
+      "category": "Food",
+      "amount": 200,
+      "type": "expense",
+      "date": "2024-11-01"
+    },
+    {
+      "id": "5b76",
+      "name": "Rohan Example",
+      "dob": "1995-01-15",
+      "gender": "male",
+      "contact": "alice@example.com"
+    }
+  ]
+}

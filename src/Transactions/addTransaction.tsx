@@ -1,4 +1,7 @@
+
+import { useState } from "react"
 import Button from "../components/Button"
+import Modal from "../components/Modal"
 
 interface TransactionDetails {
   id:number,
@@ -10,6 +13,12 @@ interface TransactionDetails {
 }
 
 function AddTransaction() {
+
+  const [showForm,setShowForm] = useState(false);
+  
+  const handleClick = ()=>{
+    setShowForm(true)
+  }
 
   const transactions:TransactionDetails[] = 
   [
@@ -32,19 +41,33 @@ function AddTransaction() {
 
   return (
   <div>
+    {showForm&&<Modal setShowForm ={setShowForm} />}
     <div className=" flex justify-between p-5">
         <div>
           <p className="text-2xl font-bold" >All Transactions</p>
           <p className="text-xl font-semibold" >Manage your income and expenses</p>
         </div>
         <div>
-          <Button rounded className="bg-black text-white" >
+          <Button rounded className="bg-gray-500 text-white" onClick={handleClick} >
             + Add Transaction
           </Button>
         </div>
     </div>
-    <div>
-      
+    <div className="ml-10 w-4xl" >
+      <table className="w-full border border-gray-300 text-left">
+        <thead className="bg-gray-100">
+          <tr>
+            <th className="p-2">Title</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {renderedTnx}
+        </tbody>
+      </table>
     </div>
   </div>
   )

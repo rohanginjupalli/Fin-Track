@@ -33,8 +33,8 @@ function RecentTransactions() {
       <table className="w-full border border-gray-300 text-left">
         <thead className="bg-gray-100">
           <tr>
-            <th className="p-2">Title</th>
-            <th>Category</th>
+            <th>Title</th>
+            <th >Category</th>
             <th>Amount</th>
             <th>Type</th>
             <th>Date</th>

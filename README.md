@@ -1,85 +1,106 @@
-🚀 FinTrack – Personal Finance Dashboard
+# 🚀 FinTrack – Personal Finance Dashboard
 
-A modern and scalable personal finance management web app built with React, TypeScript, Redux Toolkit, and RTK Query.
-It allows users to track their income, expenses, and financial balance in real-time with clean UI, API-powered backend, and modular architecture.
+A modern, scalable **personal finance management web app** built with **React, TypeScript, Redux Toolkit, and RTK Query**.  
+It enables users to efficiently track **income, expenses, and remaining balance** with real-time updates, API integration, and a clean UI.
 
-✨ Why This Project Stands Out
+---
 
-✔ Built using Enterprise-grade architecture
-✔ Fully functional Redux global state + RTK Query API integration
-✔ Uses TypeScript for type safety and reliability
-✔ Implements a fake backend with JSON Server → mimics a real API
-✔ Modular, scalable folder structure for production-ready code
-✔ Features clean UI with Tailwind CSS + Reusable Components
-✔ Smart Data handling – CRUD operations, caching, auto-refetching
-✔ Dynamic Summary Cards → Total Income, Expense, Remaining Balance
-✔ Form submission using React Hook Form and RTK Query POST requests
+## ✨ Why This Project Stands Out
 
-🛠️ Tech Stack
-Category	Technology
-Frontend	React + TypeScript + Vite
-State Management	Redux Toolkit (RTK)
-API Handling	RTK Query
-Styling	Tailwind CSS
-Form Validation	React Hook Form
-Mock Backend	JSON Server
-Routing	React Router DOM v6
-🧠 Core Features
+✅ Enterprise-level folder structure & architecture  
+✅ Global state management using **Redux Toolkit + RTK Query**  
+✅ Fully type-safe with **TypeScript**  
+✅ **JSON Server** used to simulate backend API (GET & POST requests)  
+✅ Modern UI built with **Tailwind CSS + reusable components**  
+✅ Smart and optimized data handling with **automatic caching & refetching**  
+✅ **React Hook Form** for smooth form handling and validation  
+✅ Finance analytics: **Total Income, Total Expense, Remaining Balance** displayed dynamically  
 
-✅ Dashboard Overview – Displays summary cards:
+---
 
-💰 Total Income
+## 🛠️ Tech Stack
 
-💸 Total Expense
+| Category           | Technology                          |
+|--------------------|--------------------------------------|
+| Frontend Framework | React + TypeScript + Vite           |
+| State Management   | Redux Toolkit (RTK)                 |
+| API Integration    | RTK Query                           |
+| Styling            | Tailwind CSS                        |
+| Form Handling      | React Hook Form                     |
+| Mock Backend       | JSON Server                         |
+| Routing            | React Router DOM v6                 |
 
-💼 Remaining Balance
+---
 
-✅ Transaction Management
+## 🧠 Core Features
 
-View all transactions dynamically from backend
+### ✅ Dashboard Overview  
+- 💰 Total Income  
+- 💸 Total Expense  
+- 💼 Remaining Balance  
 
-Add new income/expense through a modal form
+### ✅ Transaction Management  
+✔ Fetch & display all transactions using RTK Query  
+✔ Add Income / Expense via modal form  
+✔ Store data in **db.json** using POST API  
+✔ UI auto-refresh using `invalidatesTags`  
 
-Data automatically stored in db.json using POST API
+### ✅ Reusable & Scalable UI  
+✔ Button, SummaryCard, Modal, Table Components  
+✔ Organized file structure with clean separation of concerns  
+✔ Responsive layout using Tailwind CSS  
 
-Auto UI refresh with RTK Query caching & invalidation
+---
 
-✅ UI/UX & Component-Based Architecture
+## 📊 Data Flow & Architecture
 
-Reusable components → Button, Modal, SummaryCard, Table
+JSON Server → RTK Query API → Redux Store → React Components
 
-Mobile-responsive design with Tailwind
-
-Clean and minimalistic finance dashboard layout
-
-✅ Real-Time Data Flow
-
-JSON Server → RTK Query → Redux Store → React UI (Dashboard & Tables)
+**UI Render Flow:**
 
 
-📂 Folder Structure Overview
+---
+
+## 📁 Folder Structure
+
 /src
- ├── components/         # Reusable UI components (Modal, Buttons, SummaryCard)
- ├── pages/              # Dashboard & Transaction Pages
- ├── store/
- │    ├── apis/          # RTK Query API services
- │    └── store.ts       # Redux Store configuration
- ├── assets/             # Images, Icons 
- ├── App.tsx             # Routing setup
- └── main.tsx            # App entry point
+├── assets/ # Images or icons (if any)
+├── components/
+│ ├── Button.tsx
+│ ├── Modal.tsx
+│ ├── SummaryCard.tsx
+│ ├── Footer.tsx
+│ └── RootLayout.tsx
+├── Dashboard/
+│ ├── Home.tsx
+│ ├── ExpenseIncomeGraph.tsx
+│ └── RecentTransactions.tsx
+├── Transactions/
+│ └── AddTransaction.tsx
+├── NavigationBar/
+│ └── NavBar.tsx
+├── store/
+│ ├── apis/
+│ │ └── transactionsApi.ts
+│ └── index.ts # Store configuration
+├── App.tsx # App routes setup
+├── main.tsx # App entry point
+└── db.json # JSON Server database
 
- ⚡ How to Run Locally
-# 1. Clone Repo
+
+## ⚡ How to Run Locally
+
+# 1. Clone the Repository
 git clone https://github.com/yourusername/fintrack.git
 cd fintrack
 
 # 2. Install Dependencies
 npm install
 
-# 3. Start Frontend
+# 3. Start Frontend (Vite)
 npm run dev
 
-# 4. Start Backend (JSON Server)
-npm run serve:db
-# OR
-json-server --watch db.json --port 3000
+# 4. Start JSON Server Backend
+npm json-server --watch db.json --port 3000
+# or
+npm run start:server

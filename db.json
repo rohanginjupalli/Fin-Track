@@ -17,11 +17,27 @@
       "type": "expense"
     },
     {
-      "id": "2ed0",
-      "date": "2025-11-09",
-      "title": "Chaitanya Food COurt",
-      "category": "Food",
-      "amount": "6000",
+      "id": "e2dc",
+      "date": "2025-11-10",
+      "title": "Food",
+      "category": "Debt",
+      "amount": "20000",
+      "type": "income"
+    },
+    {
+      "id": "27c0",
+      "date": "2025-11-10",
+      "title": "dsfdas",
+      "category": "dsfadsf",
+      "amount": "5000",
+      "type": "income"
+    },
+    {
+      "id": "1621",
+      "date": "2025-11-10",
+      "title": "Rohan Given",
+      "category": "Loan",
+      "amount": "7500",
       "type": "income"
     }
   ]

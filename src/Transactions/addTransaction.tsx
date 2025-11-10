@@ -2,6 +2,7 @@ import { useGetTransactionsQuery, type Transaction } from "../store/apis/transac
 import { useState } from "react"
 import Button from "../components/Button"
 import Modal from "../components/Modal"
+import TransactionTable from "../components/TransactionTable";
 
 // Using Transaction type from the API slice; remove unused local interface.
 
@@ -16,18 +17,6 @@ function AddTransaction() {
     setShowForm(true)
   }
 
-  
-  const renderedTnx = transactions.map((txn: Transaction) => (
-            <tr key={txn.id} className="border-t">
-              <td className="p-2">{txn.title}</td>
-              <td>{txn.category}</td>
-              <td className={txn.type === "Income" ? "text-green-600" : "text-red-600"}>
-                ₹{txn.amount}
-              </td>
-              <td>{txn.type}</td>
-              <td>{txn.date}</td>
-            </tr>
-            ))
 
   return (
   <div>
@@ -50,20 +39,7 @@ function AddTransaction() {
         transactions.length === 0 ? (
           <p className="p-4 text-gray-500">No transactions found.</p>
         ) : (
-          <table className="w-full border border-gray-300 text-left">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="p-2">Title</th>
-                <th>Category</th>
-                <th>Amount</th>
-                <th>Type</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {renderedTnx}
-            </tbody>
-          </table>
+          <TransactionTable transactions={transactions}  />
         )
       )}
     </div>

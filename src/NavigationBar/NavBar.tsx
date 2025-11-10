@@ -2,8 +2,8 @@ import { NavLink } from 'react-router-dom';
 
 function NavBar() {
   return (
-    <div className="h-24 flex justify-between items-center py-2 px-4 bg-white shadow-sm">
-      <div className="text-2xl font-bold text-Gray-600">
+    <div className="h-24 flex justify-between items-center py-2 px-4 bg-[#0ea5e9] shadow-sm">
+      <div className="text-2xl font-bold text-white">
         Fin-Track
       </div>
       <ul className="flex space-x-4 items-center">
@@ -13,8 +13,8 @@ function NavBar() {
             className={({ isActive }) =>
               `px-3 py-2 rounded transition-colors duration-200 ${
                 isActive
-                  ? 'bg-yellow-500 text-white'
-                  : 'text-gray-700 hover:bg-blue-100'
+                  ? 'bg-white text-[#0ea5e9]'
+                  : 'text-white hover:bg-blue-200'
               }`
             }
           >
@@ -27,8 +27,8 @@ function NavBar() {
             className={({ isActive }) =>
               `px-3 py-2 rounded transition-colors duration-200 ${
                 isActive
-                  ? 'bg-yellow-500 text-white'
-                  : 'text-gray-700 hover:bg-blue-100'
+                  ? 'bg-white text-[#0ea5e9]'
+                  : 'text-white hover:bg-blue-200'
               }`
             }
           >
@@ -40,4 +40,4 @@ function NavBar() {
   );
 }
 
-export default NavBar
+export default NavBar;

@@ -14,7 +14,7 @@ function SummaryCard({title,amount}:SummaryCardDetails) {
   return (
     <div>
       
-      <Panel>
+      <Panel className="bg-amber-300" >
         <h2 className="text-gray-600 text-sm font-semibold">{title}</h2>
         <p className="text-2xl ">{amount}</p>
       </Panel>

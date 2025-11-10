@@ -1,13 +1,14 @@
+import React from 'react';
 import classNames from 'classnames';
 
-interface PanelComponentProps extends React.HTMLAttributes<HTMLDivElement>{
-    children:React.ReactNode | number,
-    className?: string,
+interface PanelComponentProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode | number;
+  className?: string;
 }
 
-function Panel({ children, className, ...rest }:PanelComponentProps) {
+function Panel({ children, className, ...rest }: PanelComponentProps) {
   const finalClassNames = classNames(
-    'border rounded p-3 shadow bg-white w-full',
+    'bg-white shadow-lg rounded-2xl p-4 w-full',
     className
   );
 

@@ -1,73 +1,123 @@
-# React + TypeScript + Vite
+# 🚀 FinTrack – Personal Finance Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, scalable **personal finance management web app** built with **React, TypeScript, Redux Toolkit, and RTK Query**.  
+It enables users to efficiently track **income, expenses, and remaining balance** with real-time updates, API integration, and a clean UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Why This Project Stands Out
 
-## React Compiler
+✅ Enterprise-level folder structure & architecture  
+✅ Global state management using **Redux Toolkit + RTK Query**  
+✅ Fully type-safe with **TypeScript**  
+✅ **JSON Server** used to simulate backend API (GET & POST requests)  
+✅ Modern UI built with **Tailwind CSS + reusable components**  
+✅ Smart and optimized data handling with **automatic caching & refetching**  
+✅ **React Hook Form** for smooth form handling and validation  
+✅ Finance analytics: **Total Income, Total Expense, Remaining Balance** displayed dynamically  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Category           | Technology                          |
+|--------------------|--------------------------------------|
+| Frontend Framework | React + TypeScript + Vite           |
+| State Management   | Redux Toolkit (RTK)                 |
+| API Integration    | RTK Query                           |
+| Styling            | Tailwind CSS                        |
+| Form Handling      | React Hook Form                     |
+| Mock Backend       | JSON Server                         |
+| Routing            | React Router DOM v6                 |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🧠 Core Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### ✅ Dashboard Overview  
+- 💰 Total Income  
+- 💸 Total Expense  
+- 💼 Remaining Balance  
+
+### ✅ Transaction Management  
+✔ Fetch & display all transactions using RTK Query  
+✔ Add Income / Expense via modal form  
+✔ Store data in **db.json** using POST API  
+✔ UI auto-refresh using `invalidatesTags`  
+
+### ✅ Reusable & Scalable UI  
+✔ Button, SummaryCard, Modal, Table Components  
+✔ Organized file structure with clean separation of concerns  
+✔ Responsive layout using Tailwind CSS  
+
+---
+
+## 📊 Data Flow & Architecture
+
+JSON Server → RTK Query API → Redux Store → React Components
+
+**UI Render Flow:**
+
+
+---
+
+## 📁 Folder Structure
+
+```
+/src
+├── assets/                       # Images or icons (if any)
+├── components/                  # Reusable UI components
+│   ├── Button.tsx
+│   ├── Modal.tsx
+│   ├── SummaryCard.tsx
+│   ├── Footer.tsx
+│   └── RootLayout.tsx
+├── Dashboard/                   # Dashboard related components
+│   ├── Home.tsx
+│   ├── ExpenseIncomeGraph.tsx
+│   └── RecentTransactions.tsx
+├── Transactions/                # Transactions page components
+│   └── AddTransaction.tsx
+├── NavigationBar/               # Navigation bar component
+│   └── NavBar.tsx
+├── store/                       # Redux Toolkit store setup
+│   ├── apis/
+│   │   └── transactionsApi.ts   # RTK Query API logic
+│   └── index.ts                 # Store configuration
+├── App.tsx                      # App routes setup
+├── main.tsx                     # Application entry point
+└── db.json                      # JSON Server mock backend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚡ How to Run Locally
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# 1. Clone the Repository
+git clone https://github.com/yourusername/fintrack.git
+cd fintrack
+
+# 2. Install Dependencies
+npm install
+
+# 3. Start Frontend (Vite)
+npm run dev
+
+# 4. Start JSON Server Backend
+npm json-server --watch db.json --port 3000
+# or
+npm run start:server
+
+
+✅ Summary of Final Feature Goals
+Feature	Status
+Add transactions	✅ Done
+Get data from API	✅ Done
+Modal + React-hook-form	✅ Done
+Total income/expense calculation	✅ Done
+Edit transaction	🔄 Pending
+Delete transaction	🔄 Pending
+Graphs (Recharts)	🔄 Pending
+Filters & sorting	🔄 Pending
+Auth system	🔄 Optional
+Export PDF/Excel	🔄 Optional
+Deployment	🔄 Final step

@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export interface Transaction {
-  id?: number;
+  id: number;
   title: string;
   category: string;
   amount: number;
@@ -26,7 +26,14 @@ export const transactionApi = createApi({
         }),
         invalidatesTags: ["Transactions"]
     }),
+    deleteTransaction:builder.mutation<Transaction,number>({
+      query: (id) => ({
+        url: `/transactions/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags:["Transactions"]
+    })
   }),
 });
 
-export const {useGetTransactionsQuery,useAddTransactionMutation} = transactionApi
+export const {useGetTransactionsQuery,useAddTransactionMutation,useDeleteTransactionMutation} = transactionApi

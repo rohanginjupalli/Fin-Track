@@ -1,12 +1,27 @@
 
 import {  type Transaction } from "../store/apis/transactionsApi";
 import { IoArrowUpCircleSharp,IoArrowDownCircleSharp } from "react-icons/io5";
+import { MdDelete } from "react-icons/md";
+import { useDeleteTransactionMutation } from "../store/apis/transactionsApi";
 
 interface TransactionTableProps {
   transactions: Transaction[];
 }
 
+
+
 function TransactionTable({transactions}:TransactionTableProps) {
+
+    const [deleteTransaction] = useDeleteTransactionMutation();
+
+    const handleDelete = async (id: number) => {
+    try {
+      await deleteTransaction(id).unwrap(); 
+      console.log(`Deleted transaction with id: ${id}`);
+    } catch (err) {
+      console.error("Failed to delete:", err);
+    }
+  };
 
     const renderedTnx = transactions.map((txn: Transaction) => (
         <tr key={txn.id} className="odd:bg-white even:bg-gray-50 border-b border-gray-200 text-gray-800">
@@ -25,7 +40,14 @@ function TransactionTable({transactions}:TransactionTableProps) {
                 ₹{txn.amount}
             </td>
             <td className="px-6 py-4">{txn.type}</td>
-            <td className="px-6 py-4">{txn.date}</td>
+            <td className="px-6 py-4">
+              <div className="flex items-center gap-5" >
+                <span>{txn.date}</span>
+                <MdDelete className="text-2xl cursor-pointer hover:text-red-600 transition-colors" onClick={()=>{
+                  handleDelete(txn.id);
+                }}  />
+              </div>
+              </td>
         </tr>
     ))
 

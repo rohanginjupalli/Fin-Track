@@ -5,6 +5,14 @@ It enables users to efficiently track **income, expenses, and remaining balance*
 
 ---
 
+## 📸 Application Screenshots
+
+![Dashboard Screenshot 1](https://github.com/yourname/yourrepo/assets/Screenshot 2025-11-22 124147.png)
+
+![Dashboard Screenshot 2](https://github.com/yourname/yourrepo/assets/Screenshot 2025-11-22 124433.png)
+
+---
+
 ## ✨ Why This Project Stands Out
 
 ✅ Enterprise-level folder structure & architecture  

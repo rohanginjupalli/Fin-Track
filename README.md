@@ -7,9 +7,11 @@ It enables users to efficiently track **income, expenses, and remaining balance*
 
 ## 📸 Application Screenshots
 
-![Dashboard Screenshot 1](https://github.com/yourname/yourrepo/assets/Screenshot 2025-11-22 124147.png)
+### 🖥️ Dashboard View
 
-![Dashboard Screenshot 2](https://github.com/yourname/yourrepo/assets/Screenshot 2025-11-22 124433.png)
+![Dashboard Screenshot 1](/mnt/data/93246a3f-514a-45b6-8275-f17243a937dc.png)
+
+![Dashboard Screenshot 2](/mnt/data/caf0f84b-2bf7-4426-98ff-8fa8c32404c7.png)
 
 ---
 

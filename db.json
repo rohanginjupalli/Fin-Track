@@ -23,6 +23,22 @@
       "category": "Shopping",
       "amount": "6000",
       "type": "income"
+    },
+    {
+      "id": "a752",
+      "date": "2025-11-20",
+      "title": "jeevan Given",
+      "category": "debt",
+      "amount": "3000",
+      "type": "income"
+    },
+    {
+      "id": "6e4d",
+      "date": "2025-11-16",
+      "title": "Chicken",
+      "category": "Food",
+      "amount": "250",
+      "type": "expense"
     }
   ]
 }

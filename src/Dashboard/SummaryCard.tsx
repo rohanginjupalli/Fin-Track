@@ -9,8 +9,6 @@ interface SummaryCardDetails {
 
 function SummaryCard({title,amount}:SummaryCardDetails) {
 
-  
-
   return (
     <div>
       

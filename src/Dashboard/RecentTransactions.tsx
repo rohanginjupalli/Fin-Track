@@ -1,16 +1,16 @@
-import { useGetTransactionsQuery, type Transaction } from "../store/apis/transactionsApi";
+import type { Transaction } from "../store/apis/transactionsApi";
 import TransactionTable from "../components/TransactionTable";
 
-function RecentTransactions() {
+interface RecentTransactionsProps {
+  transactions: Transaction[];
+}
 
-  const { data } = useGetTransactionsQuery();
-  const transactions: Transaction[] = data ?? [];
-
+function RecentTransactions({ transactions }: RecentTransactionsProps) {
   return (
     <div>
       <TransactionTable transactions={transactions} />
     </div>
-  )
+  );
 }
 
 export default RecentTransactions;

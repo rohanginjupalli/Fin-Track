@@ -1,8 +1,7 @@
-import ExpenseIncomeGraph from "./ExpenseIncomeGraph"
 import RecentTransactions from "./RecentTransactions"
 import SummaryCard from "./SummaryCard"
 import { useGetTransactionsQuery } from "../store/apis/transactionsApi"
-
+import ExpensePieChart from "./ExpensePieChart"
 interface aboutCard{
   title:string,
   amount:number
@@ -10,7 +9,8 @@ interface aboutCard{
 
 function Home() {
 
-  const {data} = useGetTransactionsQuery();
+  const { data } = useGetTransactionsQuery();
+  const transactions = data ?? [];
 
   const totalIncome = data?.reduce((acc, txn) => {
   return txn.type === 'income' ? acc + Number(txn.amount) : acc;
@@ -33,7 +33,7 @@ const remainingBalance = totalIncome - totalExpense;
 
   return (
     <div>
-        <div className="mt-10 px-6 w-full">
+        <div className="mt-5 px-6 w-full">
           <h2 className="text-2xl font-bold mb-5">Welcome , User</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {summaryData.map((item, index) => (
@@ -43,10 +43,10 @@ const remainingBalance = totalIncome - totalExpense;
         </div>
         <div  className=" mt-10 px-6 grid grid-cols-6 gap-4  " >
           <div className="col-span-2 text-xl font-bold ">
-            <ExpenseIncomeGraph />
+            <ExpensePieChart transactions={transactions} />
           </div>
           <div className="col-span-4 text-xl font-bold ">
-            <RecentTransactions />
+            <RecentTransactions transactions={transactions} />
           </div>
             
         </div>

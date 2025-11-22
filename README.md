@@ -9,9 +9,10 @@ It enables users to efficiently track **income, expenses, and remaining balance*
 
 ### 🖥️ Dashboard View
 
-![Dashboard Screenshot 1](/mnt/data/93246a3f-514a-45b6-8275-f17243a937dc.png)
+![Dashboard Screenshot 1](src/assets/Screenshot%202025-11-22%20124147.png)
 
-![Dashboard Screenshot 2](/mnt/data/caf0f84b-2bf7-4426-98ff-8fa8c32404c7.png)
+![Dashboard Screenshot 2](src/assets/Screenshot%202025-11-22%20124433.png)
+
 
 ---
 

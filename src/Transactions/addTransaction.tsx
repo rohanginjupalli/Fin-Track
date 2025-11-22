@@ -4,7 +4,6 @@ import Button from "../components/Button"
 import Modal from "../components/Modal"
 import TransactionTable from "../components/TransactionTable";
 
-// Using Transaction type from the API slice; remove unused local interface.
 
 function AddTransaction() {
   const { data, error, isFetching } = useGetTransactionsQuery();

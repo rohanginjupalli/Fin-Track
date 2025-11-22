@@ -3,18 +3,35 @@ import {  type Transaction } from "../store/apis/transactionsApi";
 import { IoArrowUpCircleSharp,IoArrowDownCircleSharp } from "react-icons/io5";
 import { MdDelete } from "react-icons/md";
 import { useDeleteTransactionMutation } from "../store/apis/transactionsApi";
+import { useState } from "react";
 
 interface TransactionTableProps {
   transactions: Transaction[];
 }
 
-
+  type SortField = "amount" | "type" | "date" | null;
+  type SortOrder = "asc" | "desc";
 
 function TransactionTable({transactions}:TransactionTableProps) {
 
-    const [deleteTransaction] = useDeleteTransactionMutation();
+    const [sortField, setSortField] = useState<SortField>(null);
+    const [sortOrder, setSortOrder] = useState<SortOrder>("asc");
 
+     const handleSort = (field: SortField) => {
+    if (sortField === field) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortField(field);
+      setSortOrder("asc");
+    }
+  };
+
+    const [deleteTransaction] = useDeleteTransactionMutation();
+    console.log(transactions);
+    
     const handleDelete = async (id: number) => {
+    
+    
     try {
       await deleteTransaction(id).unwrap(); 
       console.log(`Deleted transaction with id: ${id}`);
@@ -23,7 +40,32 @@ function TransactionTable({transactions}:TransactionTableProps) {
     }
   };
 
-    const renderedTnx = transactions.map((txn: Transaction) => (
+  let sortedTransactions = [...transactions];
+
+  if (sortField === "amount") {
+    sortedTransactions.sort((a, b) =>
+      sortOrder === "asc" ? a.amount - b.amount : b.amount - a.amount
+    );
+  }
+
+  if (sortField === "type") {
+    sortedTransactions.sort((a, b) =>
+      sortOrder === "asc"
+        ? a.type.localeCompare(b.type)
+        : b.type.localeCompare(a.type)
+    );
+  }
+
+  if (sortField === "date") {
+    sortedTransactions.sort((a, b) =>
+      sortOrder === "asc"
+        ? new Date(a.date).getTime() - new Date(b.date).getTime()
+        : new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+  }
+
+
+    const renderedTnx = sortedTransactions.map((txn: Transaction) => (
         <tr key={txn.id} className="odd:bg-white even:bg-gray-50 border-b border-gray-200 text-gray-800">
             <td className="px-6 py-4">
                 <div className="flex items-center gap-2" >
@@ -51,6 +93,11 @@ function TransactionTable({transactions}:TransactionTableProps) {
         </tr>
     ))
 
+
+  
+
+  
+
   return (
     <div className="relative overflow-x-auto bg-white shadow-lg rounded-2xl">
       <table className="table-auto md:table-fixed w-full text-sm text-left text-gray-800">
@@ -58,9 +105,21 @@ function TransactionTable({transactions}:TransactionTableProps) {
           <tr>
             <th scope="col" className="px-6 py-3">Title</th>
             <th scope="col" className="px-6 py-3">Category</th>
-            <th scope="col" className="px-6 py-3">Amount</th>
-            <th scope="col" className="px-6 py-3">Type</th>
-            <th scope="col" className="px-6 py-3">Date</th>
+            <th scope="col" className="px-6 py-3"
+                onClick={() => handleSort("amount")}
+            >
+              Amount {" "}{sortField === "amount" && (sortOrder === "asc" ? "▲" : "▼")}
+            </th>
+            <th scope="col" className="px-6 py-3"
+                 onClick={() => handleSort("type")}
+            >
+              Type{" "}{sortField === "type" && (sortOrder === "asc" ? "▲" : "▼")}
+            </th>
+            <th scope="col" className="px-6 py-3"
+                onClick={() => handleSort("date")}
+            >
+              Date {sortField === "date" && (sortOrder === "asc" ? "▲" : "▼")}
+            </th>
           </tr>
         </thead>
         <tbody>

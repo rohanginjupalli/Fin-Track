@@ -1,19 +1,27 @@
 {
   "transactions": [
     {
-      "id": "27c0",
-      "date": "2025-11-10",
-      "title": "dsfdas",
-      "category": "dsfadsf",
-      "amount": "5000",
+      "id": "f7b5",
+      "date": "2025-11-21",
+      "title": "Biryani",
+      "category": "Food",
+      "amount": "160",
       "type": "income"
     },
     {
-      "id": "1621",
-      "date": "2025-11-10",
-      "title": "Rohan Given",
-      "category": "Loan",
-      "amount": "7500",
+      "id": "1477",
+      "date": "2025-11-21",
+      "title": "Shop klm",
+      "category": "Birthday",
+      "amount": "5000",
+      "type": "expense"
+    },
+    {
+      "id": "8f5d",
+      "date": "2025-11-21",
+      "title": "Car",
+      "category": "Shopping",
+      "amount": "6000",
       "type": "income"
     }
   ]
